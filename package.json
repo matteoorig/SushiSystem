@@ -1,0 +1,23 @@
+{
+  "name": "sushisystem",
+  "version": "1.0.0",
+  "description": "Saetti Elia - Dassaro Davide - Origgi Matteo",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/matteoorig/SushiSystem.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/matteoorig/SushiSystem/issues"
+  },
+  "homepage": "https://github.com/matteoorig/SushiSystem#readme",
+  "dependencies": {
+    "ws": "^8.4.2"
+  }
+}
