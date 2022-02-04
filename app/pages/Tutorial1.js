@@ -12,7 +12,7 @@ const Tutorial1 = (props)=>{
     return(
         
         <ImageBackground style={{height:'100%', position:'relative', justifyContent:'center', alignItems:'center'}} blurRadius={3} source={require('../img/sushiBack.jpg')}>
-            <View style={{width:'100%', height:'100%',position:'absolute', backgroundColor:'black', opacity:0.8}}></View>
+            <View style={{width:'100%', height:'100%',position:'absolute', backgroundColor:'black', opacity:0.6}} ></View>
             <SushiClub/>
             <Page1text height={'50%'} width={'100%'}/>
             <Image source={require('../img/bottoneSushi.png')} style={{width:352,height:200, resizeMode:'contain', position:'relative'}} />
