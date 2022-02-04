@@ -14,7 +14,7 @@ const SushiClub = ()=>{
         
       } else {
     return(
-        <View style={{width:'100%', height:100, flexDirection:'column', justifyContent:'flex-end', justifyContent:'center'}}>
+        <View style={{width:'100%', height:100, flexDirection:'column', justifyContent:'flex-end', justifyContent:'center', marginTop:40}}>
             <View style={{backgroundColor:'white', height:3, width:'100%', marginBottom:2}}/>
             <View style={{backgroundColor:'#9C8B8B', height:2, width:'100%', marginBottom:1}}/>
                 <View style={{height:50, width:'100%', justifyContent:'center', alignItems:'center'}}>
@@ -26,5 +26,7 @@ const SushiClub = ()=>{
     );
 }
 }
+
+
 
 export default SushiClub;
