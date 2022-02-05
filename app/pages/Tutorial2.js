@@ -12,9 +12,12 @@ import GestureRecognizer, {swipeDirections} from 'react-native-swipe-gestures';
 import WrapperTutorial from "../components/wrapperTutorial";
 import Page2text from '../components/page2text';
 import Mslider from '../components/sliderState';
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
-
+const configGesture = {
+    velocityThreshold: 0,
+    directionalOffsetThreshold: 80
+};
 
 
 
@@ -26,6 +29,7 @@ const Tutorial2 = (props) =>{
         switch (tutorialState) {
             case 0:
                 //esce prima
+                
                 setTutorialState(1);
 
                 //entra l'altra
@@ -39,10 +43,7 @@ const Tutorial2 = (props) =>{
           }
     }
 
-    const configGesture = {
-        velocityThreshold: 0,
-        directionalOffsetThreshold: 80
-    };
+   
     
 
     let [fontsLoaded] = useFonts({
@@ -54,10 +55,12 @@ const Tutorial2 = (props) =>{
     return(
         <ImageBackground style={{height:'100%', position:'relative', justifyContent:'center', alignItems:'center'}} blurRadius={3} source={require('../img/sushiBack.jpg')}>
         <View style={{width:'100%', height:'100%',position:'absolute', backgroundColor:'black', opacity:0.6}}></View>
-            <WrapperTutorial width={310} height={543} position={'relative'}/>
+            {tutorialState == 0 ? (<WrapperTutorial width={310} height={543} position={'relative'}/>):(null)}
+            {tutorialState == 1 ? (<WrapperTutorial width={310} height={543} position={'relative'}/>):(null)}
+            {tutorialState == 2 ? (<WrapperTutorial width={310} height={543} position={'relative'}/>):(null)}
 
-            {tutorialState == 0 ? (<Page2text width={'100%'} position={'absolute'} top={150} />) : (<View></View>)}
-            
+            {tutorialState == 0 ? (<Page2text width={'100%'} position={'absolute'} top={150} animIn={0}/>) : (<View></View>)}
+            {tutorialState == 1 ? (<Page2text width={'100%'} position={'absolute'} top={150} animIn={0}/>) : (<View></View>)}
 
 
             {tutorialState == 0 ? (<Mslider width={310} height={4} state={80} animateFrom={0}/>):(<View></View>)}
