@@ -4,8 +4,11 @@ import {
     useFonts,
     Antic_400Regular
 } from '@expo-google-fonts/antic';
+import { Animated } from 'react-native-web';
 
-const page2text = ({position, width, top}) =>{
+const page2text = ({position, width, top, transform}) =>{
+
+    const [anim, setAnim] = useState(new Animated.Value(0));
     let [fontsLoaded] = useFonts({
         Antic_400Regular,
     });
@@ -14,7 +17,7 @@ const page2text = ({position, width, top}) =>{
         
     } else {
     return(
-        <View style={{width: width, justifyContent:'center', alignItems:'center', position:position, top:top}}>
+        <View style={{width: width, justifyContent:'center', alignItems:'center', position:position, top:top, transform:[{translateX:starter}]}}>
           <View style={{width:60, height:60, borderRadius:45, borderColor:'white', borderWidth:3, justifyContent:'center', alignItems:'center', marginBottom:45}}>
                     <Text style={{fontSize:40, color:'white', fontFamily:'Cabin_400Regular'}}>!</Text>
                 </View>
