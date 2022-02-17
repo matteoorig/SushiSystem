@@ -4,9 +4,9 @@ import { TouchableOpacity } from 'react-native-web';
 
 
 
-const slider = ({width, height, state, animateFrom}) =>{
+const slider = ({width, height, state}) =>{
 
-    const [animatedStart, setAnimatedStart] = useState(new Animated.Value(animateFrom));
+    const [animatedStart, setAnimatedStart] = useState(new Animated.Value(-500));
     
     useEffect(() => {
       Animated.timing(animatedStart, {
