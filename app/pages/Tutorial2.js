@@ -25,6 +25,8 @@ const Tutorial2 = (props) =>{
 
     const [tutorialState, setTutorialState] = useState(0);
 
+
+
     function checkState(){
         switch (tutorialState) {
             case 0:
@@ -43,8 +45,7 @@ const Tutorial2 = (props) =>{
           }
     }
 
-   
-    
+
 
     let [fontsLoaded] = useFonts({
         Cabin_400Regular,
@@ -55,12 +56,12 @@ const Tutorial2 = (props) =>{
     return(
         <ImageBackground style={{height:'100%', position:'relative', justifyContent:'center', alignItems:'center'}} blurRadius={3} source={require('../img/sushiBack.jpg')}>
         <View style={{width:'100%', height:'100%',position:'absolute', backgroundColor:'black', opacity:0.6}}></View>
-            {tutorialState == 0 ? (<WrapperTutorial width={310} height={543} position={'relative'}/>):(null)}
-            {tutorialState == 1 ? (<WrapperTutorial width={310} height={543} position={'relative'}/>):(null)}
-            {tutorialState == 2 ? (<WrapperTutorial width={310} height={543} position={'relative'}/>):(null)}
+            {tutorialState == 0 ? (<WrapperTutorial width={310} height={543} position={'relative'} />):(null)}
+            {tutorialState == 1 ? (<WrapperTutorial width={310} height={543} position={'relative'} />):(null)}
+            {tutorialState == 2 ? (<WrapperTutorial width={310} height={543} position={'relative'} />):(null)}
 
-            {tutorialState == 0 ? (<Page2text width={'100%'} position={'absolute'} top={150} animIn={0}/>) : (<View></View>)}
-            {tutorialState == 1 ? (<Page2text width={'100%'} position={'absolute'} top={150} animIn={0}/>) : (<View></View>)}
+            {tutorialState == 0 ? (<Page2text width={'100%'} position={'absolute'} top={150} />) : (<View></View>)}
+            {tutorialState == 1 ? (<Page2text width={'100%'} position={'absolute'} top={150} />) : (<View></View>)}
 
 
             {tutorialState == 0 ? (<Mslider width={310} height={4} state={80} animateFrom={0}/>):(<View></View>)}

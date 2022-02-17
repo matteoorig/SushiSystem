@@ -3,9 +3,9 @@ import { ImageBackground, StyleSheet, Text, View , Image, TouchableWithoutFeedba
 import { LinearGradient } from 'expo-linear-gradient';
 import { useEffect, useState } from 'react';
 
-const wrapper = ({width, height, position, animOut}) =>{
+const wrapper = ({width, height, position}) =>{
 
-    const [textAreaX, setTextAreaX] = useState(new Animated.Value(animOut));
+    const [textAreaX, setTextAreaX] = useState(new Animated.Value(500));
 
     //animazione in entrata
     useEffect(() => {
@@ -15,6 +15,10 @@ const wrapper = ({width, height, position, animOut}) =>{
             useNativeDriver:false,
         }).start();
     }, []);
+
+    function ciaone(params) {
+        console.log("Bestemmio");
+    }
     
     return(
         <Animated.View style={{width:width, height:height, position:position, transform:[{translateX:textAreaX}]}}>

@@ -7,9 +7,9 @@ import {
 } from '@expo-google-fonts/antic';
 import { Animated } from 'react-native-web';
 
-const page2text = ({position, width, top, animIn}) =>{
+const page2text = ({position, width, top}) =>{
 
-    const [textAreaX, setTextAreaX] = useState(new Animated.Value(-500));
+    const [textAreaX, setTextAreaX] = useState(new Animated.Value(500));
 
     //animazione in entrata
     useEffect(() => {
@@ -31,14 +31,13 @@ const page2text = ({position, width, top, animIn}) =>{
         <Animated.View style={{width: width, justifyContent:'center', alignItems:'center', position:position, top:top, transform:[{translateX:textAreaX}]}}>
           <View style={{width:60, height:60, borderRadius:45, borderColor:'white', borderWidth:3, justifyContent:'center', alignItems:'center', marginBottom:45}}>
                     <Text style={{fontSize:40, color:'white', fontFamily:'Cabin_400Regular'}}>!</Text>
-                </View>
+          </View>
                 <Text style={{fontFamily:'Antic_400Regular', fontSize:24, color:'white', marginBottom:5}}>Ricordati di collegarti</Text>
                 <Text style={{fontFamily:'Antic_400Regular', fontSize:24, color:'white', marginBottom:60}}>alla rete del ristorante</Text>
                 <Text style={{fontFamily:'Antic_400Regular', fontSize:18, color:'white', marginBottom:5}}>nome</Text>
                 <Text style={{fontFamily:'Antic_400Regular', fontSize:24, color:'white', marginBottom:20}}>MARTINROUTERKING</Text>
                 <Text style={{fontFamily:'Antic_400Regular', fontSize:18, color:'white', marginBottom:5}}>password</Text>
                 <Text style={{fontFamily:'Antic_400Regular', fontSize:24, color:'white'}}>123456789</Text>
-
         </Animated.View>
     );
     }
