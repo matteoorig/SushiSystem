@@ -11,7 +11,7 @@ const Stack = createNativeStackNavigator();
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Tutorial1" screenOptions={{gestureEnabled: false}}>
+      <Stack.Navigator initialRouteName="Tutorial2" screenOptions={{gestureEnabled: false}}>
         <Stack.Screen name="Tutorial1" component={Tutorial1} options={{headerShown: false}}/>
         <Stack.Screen name="Tutorial2" component={Tutorial2} options={{headerShown: false}}/>
       </Stack.Navigator>
