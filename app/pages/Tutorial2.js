@@ -1,4 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
+
 import { ImageBackground, StyleSheet, Text, View , Image, TouchableWithoutFeedback, Animated} from 'react-native';
 import AppLoading from 'expo-app-loading'; //expo install expo-app-loading
 import {
@@ -9,10 +10,13 @@ import { AntDesign } from '@expo/vector-icons';
 import GestureRecognizer, {swipeDirections} from 'react-native-swipe-gestures';
 
 
+
 import WrapperTutorial from "../components/wrapperTutorial";
 import Page2text from '../components/page2text';
+import Page3text from '../components/page3text';
 import Mslider from '../components/sliderState';
 import { useEffect, useRef, useState } from 'react';
+
 
 const configGesture = {
     velocityThreshold: 0,
@@ -23,7 +27,7 @@ const configGesture = {
 
 const Tutorial2 = (props) =>{
 
-    const [tutorialState, setTutorialState] = useState(0);
+    const [tutorialState, setTutorialState] = useState(1);
 
 
 
@@ -61,7 +65,7 @@ const Tutorial2 = (props) =>{
             {tutorialState == 2 ? (<WrapperTutorial width={310} height={543} position={'relative'} />):(null)}
 
             {tutorialState == 0 ? (<Page2text width={'100%'} position={'absolute'} top={150} />) : (<View></View>)}
-            {tutorialState == 1 ? (<Page2text width={'100%'} position={'absolute'} top={150} />) : (<View></View>)}
+            {tutorialState == 1 ? (<Page3text width={'100%'} position={'absolute'} top={150} />) : (<View></View>)}
 
 
             {tutorialState == 0 ? (<Mslider width={310} height={4} state={80} animateFrom={0}/>):(<View></View>)}
