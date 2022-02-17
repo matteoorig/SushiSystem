@@ -1,0 +1,6 @@
+		SETTIMANA 1				SETTIMANA 2			SETTIMANA 3					SETTIMANA 4					SETTIMANA 5					SETTIMANA 6					SETTIMANA 7			SETTIMANA 8				SETTIMANA 9						SETTIMANA 10
+ORIGGI MATTEO	Definizione view testuali da figma	Animazioni sulle view testuali	Completamento animazioni per view tutorial	Costruzione Prima pagina navbar da figma	Corstuzione Seconda pagina navbar da figma	Costruzione Terza pagina navbar da figma	Aggiunta animazioni navbar	Tester per connessioni al backend	Completamento connessioni e risoluzione errori		Controllo ultimi bug e release
+
+SAETTI ELIA	Interfaccia grafica iniziale 		Interfaccia grafica main 	Risoluzione problemi media-query		Analisi animazioni su interfaccia		Aggiunta animazioni per main e pagina iniziale	Analisi logica js da inserire alla grafica	Inserimento logica js		Tester connessioni al back end 		Risoluzione problemi e completamento connessioni 	Controllo ultimi bug e release
+
+DASSARO DAVIDE	Analisi nodejs				Connessione tester		Costruzione client				Costruzione server				Stabilire connessione				Gestione eventi					Gestione messaggi		Risoluzione bug				Prova finale 
