@@ -14,7 +14,7 @@ const path = [
 ]
 
 
-const page3text = ({position, width, top}) =>{
+const page4text = ({position, width, height, top}) =>{
 
     const [textAreaX, setTextAreaX] = useState(new Animated.Value(500));
 
@@ -35,29 +35,14 @@ const page3text = ({position, width, top}) =>{
         
     } else {
     return(
-        <Animated.View style={{width: width, justifyContent:'center', alignItems:'center', position:position, top:top, transform:[{translateX:textAreaX}]}}>
-          <View style={{width:60, height:60, justifyContent:'center', alignItems:'center', marginBottom:45}}>
-            <Svg width={60} height={60} viewBox={[0,0,60,60].join(" ")}>
-                {path.map((d, key) => <Path d={d}  fill="#FFFFFF" strokeWidth={0.2} key={key}/>)}
-            </Svg>
-          </View>
+        <Animated.View style={{width: width, height: height, backgroundColor:'red', justifyContent:'center', alignItems:'center', position:position, top:top, transform:[{translateX:textAreaX}], flexDirection:'column'}}>
+          <View style={{width:250, height:70, backgroundColor:'green'}}></View>
+          
 
-            <View style={{width:250, height: 50, position:'relative', marginBottom:20}}>
-                <TextInput style={{width:250, height:45, fontSize:25, color:'white', fontFamily:'Antic_400Regular'}} placeholder="N° tavolo" placeholderTextColor='#FFFFFF' />
-                <View style={{width:250, height:3, position:'absolute', bottom:0, backgroundColor:'white'}}></View>
-            </View>
-            <View style={{width:250, height: 50, position:'relative', marginBottom:20}}>
-                <TextInput style={{width:250, height:45, fontSize:25, color:'white', fontFamily:'Antic_400Regular'}} placeholder="Nome del tavolo" placeholderTextColor='#FFFFFF' />
-                <View style={{width:250, height:3, position:'absolute', bottom:0, backgroundColor:'white'}}></View>
-            </View>
-            <View style={{width:250, height: 50, position:'relative'}}>
-                <TextInput style={{width:250, height:45, fontSize:25, color:'white', fontFamily:'Antic_400Regular'}} placeholder="Nome utente" placeholderTextColor='#FFFFFF' />
-                <View style={{width:250, height:3, position:'absolute', bottom:0, backgroundColor:'white'}}></View>
-            </View>
 
         </Animated.View>
     );
     }
 }
 
-export default page3text;
+export default page4text;

@@ -1,11 +1,10 @@
-import { ImageBackground, StyleSheet, Text, View } from 'react-native';
+import { ImageBackground, StyleSheet, Text, View, Animated } from 'react-native';
 import { useEffect, useState } from "react";
 import AppLoading from 'expo-app-loading'; //expo install expo-app-loading
 import {
     useFonts,
     Antic_400Regular
 } from '@expo-google-fonts/antic';
-import { Animated } from 'react-native-web';
 
 const page2text = ({position, width, top}) =>{
 
