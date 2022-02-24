@@ -21,7 +21,7 @@ window.onload = function() {
             
             element[i].addEventListener("click", ()=>{
                 if(!stato){
-                    document.getElementById("e1").style.height="85%";
+                    document.getElementById("e1").style.height="80%";
                     document.getElementById("e1").style.transition = "height 500ms ease-in-out";
                     stato=true;
                     tempEventId=element[i].id;
@@ -37,7 +37,7 @@ window.onload = function() {
                         document.getElementById("e1").style.height="0%";
                         document.getElementById("e1").style.transition = "height 500ms ease-in-out";
                         setTimeout(()=>{
-                            document.getElementById("e1").style.height="85%";
+                            document.getElementById("e1").style.height="80%";
                             document.getElementById("e1").style.transition = "height 500ms ease-in-out";
                         },600);
                         stato=true;

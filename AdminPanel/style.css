@@ -3,6 +3,10 @@
     font-family: 'Rajdhani', sans-serif;
     font-size: larger;
 }
+
+::-webkit-scrollbar{
+    display: none;
+}
 .wrapper{
     display: flex;
     align-items: center;
@@ -25,7 +29,7 @@
 .containerCc{
     background: #F9F9F9;
     display: flex;
-    align-items: center;
+    align-items: top;
     justify-content: center;
     width: 35%;
     height: 90%;
@@ -65,9 +69,44 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     width:85%;
     height: 0%;
     border-radius: 45px;
-    margin-top: 5%;
+    margin-top: 17%;
     transition: width 600ms ease-out, height 600ms ease-out;
+    position: relative;
+}
+.linea{
+    border-left: 6px solid white;
+    height: 85%;
+    margin-right: 80%;
+    border-radius: 45px;
+    /*visibility: hidden;*/
+}
+.pallino{
+    height: 25px;
+    width: 25px;
+    background-color:blue;
+    border-radius: 50%;
+}
+.wrapperOrdini{
+    width: 90%;
+    height: 500px;
+    background-color: aquamarine;
+    overflow: scroll;
+
+}
+.elementOrdini{
+    width: 90%;
+    height: 50px;
+    background-color: brown;
+    margin-top: 10px;
+    /*margin: 10px auto;*/
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.ordine{
+    
 }
