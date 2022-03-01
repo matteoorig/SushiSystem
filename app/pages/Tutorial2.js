@@ -8,7 +8,7 @@ import {
 } from '@expo-google-fonts/cabin';
 import { AntDesign } from '@expo/vector-icons'; 
 import GestureRecognizer, {swipeDirections} from 'react-native-swipe-gestures';
-
+import { w3cwebsocket as W3CWebSocket } from "websocket";
 
 
 import WrapperTutorial from "../components/wrapperTutorial";
@@ -28,8 +28,28 @@ const configGesture = {
 
 
 const Tutorial2 = (props) =>{
-
-    const [tutorialState, setTutorialState] = useState(2);
+    const client = new W3CWebSocket('ws://localhost:8888');
+    useEffect(()=>{
+      
+        client.onopen = () => {
+            const obj = {
+                'cmd': "client"
+            }
+            client.send(obj);
+        };
+    
+        client.onmessage = (message) => {
+            const result = JSON.stringify(message.data);
+            const command = result.split(';');
+            
+        };
+        client.onerror = function() {
+            console.log('Connection Error');
+            //qui c'è da mettere un popup che dica che
+        };
+    
+    })
+    const [tutorialState, setTutorialState] = useState(0);
 
 
 
@@ -67,15 +87,15 @@ const Tutorial2 = (props) =>{
             {tutorialState == 1 ? (<WrapperTutorial width={310} height={543} position={'relative'} />):(null)}
             {tutorialState == 2 ? (<WrapperTutorial width={310} height={543} position={'relative'} />):(null)}
 
-            {tutorialState == 0 ? (<Page2text width={'100%'} position={'absolute'} top={150} />) : (<View></View>)}
-            {tutorialState == 1 ? (<Page3text width={'100%'} position={'absolute'} top={150} />) : (<View></View>)}
-            {tutorialState == 2 ? (<Page4text width={'100%'} position={'absolute'} height={543} top={90} />) : (<View></View>)}
+            {tutorialState == 0 ? (<Page2text width={'100%'} position={'absolute'} top={200} />) : (<View></View>)}
+            {tutorialState == 1 ? (<Page3text width={'100%'} position={'absolute'} top={200} />) : (<View></View>)}
+            {tutorialState == 2 ? (<Page4text width={'100%'} position={'absolute'} height={543} top={135} />) : (<View></View>)}
 
 
             {tutorialState == 0 ? (<Mslider width={310} height={4} state={80} animateFrom={0}/>):(<View></View>)}
             {tutorialState == 1 ? (<Mslider width={310} height={4} state={180} animateFrom={80}/>):(<View></View>)}
             {tutorialState == 2 ? (<Mslider width={310} height={4} state={280} animateFrom={180}/>):(<View></View>)}
-            <GestureRecognizer config={configGesture} onSwipeLeft={()=>checkState()} style={{width:'100%', justifyContent:'center', alignItems:'center'}}>
+            <GestureRecognizer config={configGesture} onSwipeLeft={()=>checkState()} style={{width:'100%', height:'95%', justifyContent:'flex-end', alignItems:'center', position:'absolute'}}>
                 <Animated.View  style={{position:'relative'}}>
                     <Image source={require('../img/manoSwipe.png')} style={{height:70, width:70, resizeMode:'contain', marginTop:50}}/>
                     <AntDesign name="doubleleft" size={24} color="white" style={{position:'absolute', top:40, left:-10}}/>
