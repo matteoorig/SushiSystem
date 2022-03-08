@@ -79,10 +79,35 @@
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 .linea{
-    border-left: 6px solid white;
+    border-left: 7px solid white;
     height: 85%;
     margin-right: 80%;
     border-radius: 45px;
+}
+.wrapperOrdini{
+    width: 90%;
+    height: 80%;
+    /*background-color: aquamarine;*/
+    overflow: scroll;
+    position: absolute;
+}
+.elementOrdini{
+    width: 100%;
+    height: 50px;
+    /*background-color: brown;*/
+    margin-top: 10px;
+    margin: 10px auto;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+.sezioneSx{
+    display: flex;
+    /*background-color: pink;*/
+    width: 15%;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
 }
 .pallino{
     height: 25px;
@@ -92,32 +117,6 @@
     border: 5px solid #F4F1F1;
     box-sizing: border-box;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    margin-left: 2px;
-}
-.wrapperOrdini{
-    width: 90%;
-    height: 80%;
-    background-color: aquamarine;
-    overflow: scroll;
-    position: absolute;
-}
-.elementOrdini{
-    width: 100%;
-    height: 50px;
-    background-color: brown;
-    margin-top: 10px;
-    margin: 10px auto;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-}
-.sezioneSx{
-    display: flex;
-    background-color: pink;
-    width: 15%;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
 }
 .sezioneDx{
     display: flex;
@@ -140,7 +139,7 @@
     color: white;
 }
 .rigaOrdine{
-    width: 90%;
+    width: 65%;
     border: 3px solid white;
     border-radius: 5px;
 }
@@ -153,6 +152,7 @@
     justify-content: center;
     background: white;
     border-radius: 10px;
+    color: black;
 }
 .bottoneX{
     width: 8%;

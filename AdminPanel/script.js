@@ -9,7 +9,6 @@ class Rectangle {
     setElement(e){
         console.log("matteo");
     }
-
   };
 
 window.onload = function() {
