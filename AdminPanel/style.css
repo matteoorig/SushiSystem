@@ -79,17 +79,24 @@
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 .linea{
-    border-left: 7px solid white;
-    height: 85%;
-    margin-right: 80%;
+    background: white;
     border-radius: 45px;
+    width: 5px;
+    height: 80%;
+    position: absolute;
+    left: 50px;
 }
 .wrapperOrdini{
-    width: 90%;
-    height: 80%;
-    /*background-color: aquamarine;*/
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    
+    background-color: aquamarine;
     overflow: scroll;
     position: absolute;
+    border-radius: 45px;
 }
 .elementOrdini{
     width: 100%;
@@ -113,6 +120,7 @@
     height: 25px;
     width: 25px;
     border-radius: 50%;
+    left: 50px;
     background: #FF8C69;
     border: 5px solid #F4F1F1;
     box-sizing: border-box;
