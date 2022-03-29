@@ -25,6 +25,10 @@ const configGesture = {
     directionalOffsetThreshold: 80
 };
 
+const navigateToNew = (props) =>{
+    props.navigation.navigate('Tutorial2');
+}
+
 
 
 const Tutorial2 = (props) =>{
