@@ -5,6 +5,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import Tutorial1 from './pages/Tutorial1';
 import Tutorial2 from './pages/Tutorial2';
+import Home from './pages/Home';
 
 const Stack = createNativeStackNavigator();
 
@@ -14,6 +15,7 @@ export default function App() {
       <Stack.Navigator initialRouteName="Tutorial1" screenOptions={{gestureEnabled: false}}>
         <Stack.Screen name="Tutorial1" component={Tutorial1} options={{headerShown: false}}/>
         <Stack.Screen name="Tutorial2" component={Tutorial2} options={{headerShown: false}}/>
+        <Stack.Screen name="Home" component={Home} options={{headerShown: false}}/>
       </Stack.Navigator>
     </NavigationContainer>
   );

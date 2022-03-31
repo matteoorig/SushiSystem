@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 
-import { ImageBackground, StyleSheet, Text, View , Image, TouchableWithoutFeedback, Animated} from 'react-native';
+import { ImageBackground, StyleSheet, Text, View , Image, TouchableWithoutFeedback, Animated, TextInput} from 'react-native';
 import AppLoading from 'expo-app-loading'; //expo install expo-app-loading
 import {
     useFonts,
@@ -26,7 +26,7 @@ const configGesture = {
 };
 
 const navigateToNew = (props) =>{
-    props.navigation.navigate('Tutorial2');
+    props.navigation.navigate('Home');
 }
 
 
@@ -62,7 +62,7 @@ const Tutorial2 = (props) =>{
             case 0:
                 //esce prima
 
-                console.log("si gode")
+                
                 setTutorialState(1);
 
                 //entra l'altra
@@ -71,6 +71,8 @@ const Tutorial2 = (props) =>{
                 setTutorialState(2);
                 break;
             case 2:
+                console.log("si gode")
+                navigateToNew(props);
                 setTutorialState(0);
                 break;
           }
@@ -106,6 +108,8 @@ const Tutorial2 = (props) =>{
                 </Animated.View>
             </GestureRecognizer>
             
+            
+                
 
         </ImageBackground>
     );
