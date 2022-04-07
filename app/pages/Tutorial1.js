@@ -17,7 +17,6 @@ const Tutorial1 = (props)=>{
             <Page1text height={'50%'} width={'100%'}/>
             <Image source={require('../img/bottoneSushi.png')} style={{width:352,height:200, resizeMode:'contain', position:'relative'}} />
             <TouchableWithoutFeedback onPress={()=>{navigateToNew(props)}}><View style={{width:150, height:150,position:'absolute', bottom:0, marginBottom:80}}></View></TouchableWithoutFeedback>
-            
         </ImageBackground>
         
     );

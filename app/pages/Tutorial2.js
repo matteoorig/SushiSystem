@@ -54,31 +54,30 @@ const Tutorial2 = (props) =>{
     
     })
     const [tutorialState, setTutorialState] = useState(0);
+    const [hGesture, sethGesture] = useState("95%")
 
 
 
     function checkState(){
         switch (tutorialState) {
             case 0:
-                //esce prima
-
-                
+                console.log("first")
+                sethGesture("15%");
                 setTutorialState(1);
-
-                //entra l'altra
                 break;
             case 1:
+                console.log("second")
+                sethGesture("95%");
                 setTutorialState(2);
                 break;
             case 2:
                 console.log("si gode")
                 navigateToNew(props);
                 setTutorialState(0);
+                
                 break;
           }
     }
-
-
 
     let [fontsLoaded] = useFonts({
         Cabin_400Regular,
@@ -101,7 +100,7 @@ const Tutorial2 = (props) =>{
             {tutorialState == 0 ? (<Mslider width={310} height={4} state={80} animateFrom={0}/>):(<View></View>)}
             {tutorialState == 1 ? (<Mslider width={310} height={4} state={180} animateFrom={80}/>):(<View></View>)}
             {tutorialState == 2 ? (<Mslider width={310} height={4} state={280} animateFrom={180}/>):(<View></View>)}
-            <GestureRecognizer config={configGesture} onSwipeLeft={()=>checkState()} style={{width:'100%', height:'95%', justifyContent:'flex-end', alignItems:'center', position:'absolute'}}>
+            <GestureRecognizer config={configGesture} onSwipeLeft={()=>checkState()} style={{width:'100%', height:hGesture, justifyContent:'flex-end', alignItems:'center', position:'absolute', position:'absolute', bottom:15}}>
                 <Animated.View  style={{position:'relative'}}>
                     <Image source={require('../img/manoSwipe.png')} style={{height:70, width:70, resizeMode:'contain', marginTop:50}}/>
                     <AntDesign name="doubleleft" size={24} color="white" style={{position:'absolute', top:40, left:-10}}/>

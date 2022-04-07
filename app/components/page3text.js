@@ -17,6 +17,9 @@ const path = [
 const page3text = ({position, width, top}) =>{
 
     const [textAreaX, setTextAreaX] = useState(new Animated.Value(500));
+    const [nTavolo, setnTavolo] = useState('');
+    const [nomeTavolo, setnomeTavolo] = useState('');
+    const [nomeUtente, setnomeUtente] = useState('');
 
     //animazione in entrata
     useEffect(() => {
@@ -43,11 +46,11 @@ const page3text = ({position, width, top}) =>{
           </View>
 
             <View style={{width:250, height: 50, position:'relative', marginBottom:20}}>
-                <TextInput style={{width:250, height:45, fontSize:25, color:'white', fontFamily:'Antic_400Regular'}} placeholder="N° tavolo" placeholderTextColor='#FFFFFF' />
+                <TextInput style={{width:250, height:45, fontSize:25, color:'white', fontFamily:'Antic_400Regular'}} placeholder="N° tavolo" onChangeText={(text) => setnTavolo(text)} defaultValue={nTavolo} placeholderTextColor='#FFFFFF' />
                 <View style={{width:250, height:3, position:'absolute', bottom:0, backgroundColor:'white'}}></View>
             </View>
             <View style={{width:250, height: 50, position:'relative', marginBottom:20}}>
-                <TextInput style={{width:250, height:45, fontSize:25, color:'white', fontFamily:'Antic_400Regular'}} placeholder="Nome del tavolo" placeholderTextColor='#FFFFFF' />
+                <TextInput style={{width:250, height:45, fontSize:25, color:'white', fontFamily:'Antic_400Regular'}} placeholder="Nome del tavolo" onChangeText={(text) => setno} placeholderTextColor='#FFFFFF' />
                 <View style={{width:250, height:3, position:'absolute', bottom:0, backgroundColor:'white'}}></View>
             </View>
             <View style={{width:250, height: 50, position:'relative'}}>
