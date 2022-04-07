@@ -18,7 +18,7 @@ import Page4text from '../components/page4text';
 
 import Mslider from '../components/sliderState';
 import { useEffect, useRef, useState } from 'react';
-
+import User from '../user';
 
 const configGesture = {
     velocityThreshold: 0,
@@ -32,30 +32,11 @@ const navigateToNew = (props) =>{
 
 
 const Tutorial2 = (props) =>{
-    const client = new W3CWebSocket('ws://localhost:8888');
-    useEffect(()=>{
-      
-        client.onopen = () => {
-            const obj = {
-                'cmd': "client"
-            }
-            client.send(obj);
-        };
-    
-        client.onmessage = (message) => {
-            const result = JSON.stringify(message.data);
-            const command = result.split(';');
-            
-        };
-        client.onerror = function() {
-            console.log('Connection Error');
-            //qui c'è da mettere un popup che dica che
-        };
-    
-    })
     const [tutorialState, setTutorialState] = useState(0);
-    const [hGesture, sethGesture] = useState("95%")
+    const [hGesture, sethGesture] = useState("95%");
 
+    const U = new User();
+    
 
 
     function checkState(){
@@ -67,6 +48,7 @@ const Tutorial2 = (props) =>{
                 break;
             case 1:
                 console.log("second")
+                //inviare i dati al webService
                 sethGesture("95%");
                 setTutorialState(2);
                 break;
@@ -93,7 +75,7 @@ const Tutorial2 = (props) =>{
             {tutorialState == 2 ? (<WrapperTutorial width={310} height={543} position={'relative'} />):(null)}
 
             {tutorialState == 0 ? (<Page2text width={'100%'} position={'absolute'} top={200} />) : (<View></View>)}
-            {tutorialState == 1 ? (<Page3text width={'100%'} position={'absolute'} top={200} />) : (<View></View>)}
+            {tutorialState == 1 ? (<Page3text width={'100%'} position={'absolute'} top={200} userClass={U}/>) : (<View></View>)}
             {tutorialState == 2 ? (<Page4text width={'100%'} position={'absolute'} height={543} top={135} />) : (<View></View>)}
 
 
@@ -106,10 +88,6 @@ const Tutorial2 = (props) =>{
                     <AntDesign name="doubleleft" size={24} color="white" style={{position:'absolute', top:40, left:-10}}/>
                 </Animated.View>
             </GestureRecognizer>
-            
-            
-                
-
         </ImageBackground>
     );
     }
