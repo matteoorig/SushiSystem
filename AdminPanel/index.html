@@ -16,14 +16,14 @@
     <div class="wrapper">
         <div class="containerSx" name="containerSx" id="containerSx">
             <div class="textOrdini">TAVOLI CON ORDINI:</div>
-            <div class="tavolo" name="tav" id="tav1">TAVOLO 1</div>
-            <div class="tavolo" name="tav" id="tav2">TAVOLO 2</div>
+            <div onclick="espandiTavolo(0)" class="tavolo" name="tav" id="tav1">TAVOLO 1</div>
+            <div onclick="espandiTavolo(1)" class="tavolo" name="tav" id="tav2">TAVOLO 2</div>
         </div>
         <div class="containerCc" id="cipolla">
 
             <div class="elencoOrdiniInv" id="e1">
                 <div class="linea"></div>
-                <div class="wrapperOrdini">
+                <div class="wrapperOrdini" onclick="createOrdine()">
                     <!--INIZIO ORDINE-->
                     <div class="ordine" id="ord2">
                         <div class="contPall">
@@ -56,24 +56,9 @@
                         </div>
                         <hr class="hlinea">
                     </div> <!--FINE ORDINE-->
+                    
                 </div>
             </div>
-                <!--<div class="wrapperOrdini">
-                    <div class="elementOrdini">
-                        <div class="sezioneSx">
-                            <div class="pallino"></div>
-                        </div>
-                        <div class="sezioneDx">
-                            <div class="ordine">N°
-                                <div class="quantita"></div>
-                                <div class="bottoneX"></div>
-                            </div>
-                            <div class="rigaOrdine"></div>
-                        </div>
-                    </div>
-                    <div class="elementOrdini"></div>
-                    <div class="elementOrdini"></div>
-                </div>-->
         </div>    
         <div class="containerDx"></div>
     </div>
