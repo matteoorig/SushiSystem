@@ -3,6 +3,23 @@ let element = document.getElementsByClassName("tavolo");
 var stato = false;
 var tempEventId = "t";
 
+//Elimina ordine
+const btnX = document.querySelectorAll("#x");
+const containerOrdini = document.querySelector(".wrapperOrdini");
+btnX.forEach((obj) =>{
+    obj.addEventListener("click", ()=>{
+        console.log(obj);
+        parentDiv1 = obj.parentNode;
+        parentDiv2 = parentDiv1.parentNode;
+        parentDiv3 = parentDiv2.parentNode;
+        console.log(parentDiv3);
+        /*var elem = document.getElementById("ord2");
+        elem.parentNode.removeChild(elem);*/
+    })
+    
+})
+
+
 class Rectangle {
     constructor() {
     }

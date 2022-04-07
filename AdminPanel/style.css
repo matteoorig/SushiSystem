@@ -85,19 +85,7 @@
     top: 30px;
     width: 5px;
     height: 90%;
-    left: 40px;
-    z-index: 1;
-}
-.pallino{
-    height: 25px;
-    width: 25px;
-    border-radius: 50%;
-    position: absolute;
-    left: 30px;
-    background: #FF8C69;
-    border: 5px solid #F4F1F1;
-    box-sizing: border-box;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    left: 5%;
     z-index: 1;
 }
 .wrapperOrdini{
@@ -107,25 +95,84 @@
     flex-direction: column;
     align-items: center;
     border-radius: 45px;
-    /*background-color: aquamarine;*/
+    background-color: aquamarine;
     overflow: scroll;
     position: absolute;
     padding-top: 3%;
 }
-.item{
+.ordine{
     width: 100%;
     height: 50px;
     margin-top: 4%;
-    /*background-color: brown;*/
+    background-color: pink;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    color: #FAFAFA;
+    font-size: 40px;
+    position: relative;
+    
+}
+.contPall{
+    width: 12%;
+    height: 100%;
+    background: green;
+    position: relative;
+}
+.pallino{
+    height: 27px;
+    width: 27px;
+    left:25%;
+    top: 24%;
+    border-radius: 50%;
+    position: absolute;
+    background: #FF8C69;
+    border: 5px solid #F4F1F1;
+    box-sizing: border-box;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    z-index: 1;
+}
+.insideOrd{
+    width: 88%;
+    height: 100%;
+    background: blue;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+}
+.textN{
+    width: 10%;
+    height: 100%;
+    background: yellow;
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    color: #FAFAFA;
-    font-size: 40px;
-    padding-left: 25%;
 }
-.btnX{
-    margin-left: 60%;
+.messNum{
+    width: 20%;
+    height: 100%;
+    background: red;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+.textQ{
+    width: 20%;
+    height: 100%;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+.bottoneX{
+    width: 35%;
+    height: 100%;
+    background-color: green;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-content: end;
 }
 .hlinea{
     width: 80%;
@@ -133,5 +180,7 @@
     border: none;
     background-color: #FAFAFA;
     border-radius: 10px;
-    box-shadow: inset 0px 3px 4px rgba(0, 0, 0, 0.25);
+    top: 100%;
+    left: 60px;
+    position: absolute;
 }
