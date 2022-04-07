@@ -13,10 +13,8 @@ btnX.forEach((obj) =>{
         parentDiv2 = parentDiv1.parentNode;
         parentDiv3 = parentDiv2.parentNode;
         console.log(parentDiv3);
-        /*var elem = document.getElementById("ord2");
-        elem.parentNode.removeChild(elem);*/
+        parentDiv3.remove();
     })
-    
 })
 
 
