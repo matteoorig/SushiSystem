@@ -19,6 +19,7 @@ import Page4text from '../components/page4text';
 import Mslider from '../components/sliderState';
 import { useEffect, useRef, useState } from 'react';
 import User from '../user';
+import axios from 'axios';
 
 const configGesture = {
     velocityThreshold: 0,
@@ -31,13 +32,29 @@ const navigateToNew = (props) =>{
 
 
 
+
+
+
 const Tutorial2 = (props) =>{
     const [tutorialState, setTutorialState] = useState(0);
     const [hGesture, sethGesture] = useState("95%");
 
     const U = new User();
     
+    function addData() {
 
+        const payload = {
+            "nTavolo": U.nTavolo,
+            "nomeTavolo": U.nomeTavolo,
+            "nomeUtente": U.nomeUtente,
+        }
+
+        axios.post("http://172.20.10.4:8890/sushiSystem/connect", payload).then((res)=>{
+            console.log(res);
+        }).catch((e) =>{
+            console.log("[ERROR] "+ e);
+        })
+    }
 
     function checkState(){
         switch (tutorialState) {
@@ -49,6 +66,7 @@ const Tutorial2 = (props) =>{
             case 1:
                 console.log("second")
                 //inviare i dati al webService
+                addData();
                 sethGesture("95%");
                 setTutorialState(2);
                 break;

@@ -1,6 +1,5 @@
 //connessione iniziale al server
 const CONNESSIONE = {
-    "method": "connessione",
     "nTavolo": "51",
     "nomeTavolo": "nomeTavolone",
     "nomeUtente": "nomeUtente"
