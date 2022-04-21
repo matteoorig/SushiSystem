@@ -17,11 +17,6 @@ const path = [
 const page3text = ({position, width, top, userClass}) =>{
 
     const [textAreaX, setTextAreaX] = useState(new Animated.Value(500));
-    const [nTavolo, setnTavolo] = useState('');
-    const [nomeTavolo, setnomeTavolo] = useState('');
-    const [nomeUtente, setnomeUtente] = useState('');
-
-    
 
     //animazione in entrata
     useEffect(() => {
@@ -48,15 +43,15 @@ const page3text = ({position, width, top, userClass}) =>{
           </View>
 
             <View style={{width:250, height: 50, position:'relative', marginBottom:20}}>
-                <TextInput style={{width:250, height:45, fontSize:25, color:'white', fontFamily:'Antic_400Regular'}} placeholder="N° tavolo" onChangeText={(text) => setnTavolo(text)} defaultValue={nTavolo} placeholderTextColor='#FFFFFF'  onSubmitEditing={() => userClass.setnTavolo(nTavolo)} />
+                <TextInput style={{width:250, height:45, fontSize:25, color:'white', fontFamily:'Antic_400Regular'}} placeholder="N° tavolo" onChangeText={(text) => userClass.setnTavolo(text)} placeholderTextColor='#FFFFFF'/>
                 <View style={{width:250, height:3, position:'absolute', bottom:0, backgroundColor:'white'}}></View>
             </View>
             <View style={{width:250, height: 50, position:'relative', marginBottom:20}}>
-                <TextInput style={{width:250, height:45, fontSize:25, color:'white', fontFamily:'Antic_400Regular'}} placeholder="Nome del tavolo" onChangeText={(text) => setnomeTavolo(text)} defaultValue={nomeTavolo} placeholderTextColor='#FFFFFF' onSubmitEditing={() => userClass.setnomeTavolo(nomeTavolo)}/>
+                <TextInput style={{width:250, height:45, fontSize:25, color:'white', fontFamily:'Antic_400Regular'}} placeholder="Nome del tavolo" onChangeText={(text) => userClass.setnomeTavolo(text)} placeholderTextColor='#FFFFFF'/>
                 <View style={{width:250, height:3, position:'absolute', bottom:0, backgroundColor:'white'}}></View>
             </View>
             <View style={{width:250, height: 50, position:'relative'}}>
-                <TextInput style={{width:250, height:45, fontSize:25, color:'white', fontFamily:'Antic_400Regular'}} placeholder="Nome utente" onChangetext={(text) => setnomeUtente(text)} defaultValue={nomeUtente} placeholderTextColor='#FFFFFF' onSubmitEditing={() => userClass.setnomeUtente(nomeUtente)} />
+                <TextInput style={{width:250, height:45, fontSize:25, color:'white', fontFamily:'Antic_400Regular'}} placeholder="Nome utente" onChangeText={(text) => {userClass.setnomeUtente(text)}} placeholderTextColor='#FFFFFF'/>
                 <View style={{width:250, height:3, position:'absolute', bottom:0, backgroundColor:'white'}}></View>
             </View>
 
