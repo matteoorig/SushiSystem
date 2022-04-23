@@ -11,7 +11,7 @@ const slider = ({width, height, state}) =>{
     useEffect(() => {
       Animated.timing(animatedStart, {
           toValue: state,
-          duration: 800,
+          duration: 400,
           useNativeDriver:false,
       }).start();
     }, []);

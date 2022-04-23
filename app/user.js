@@ -12,8 +12,8 @@ class User {
         this.nomeTavolo = "";
         this.nomeUtente = "";
         this.id = "";
+        this.ordine = [];
     }
-
 
     setnTavolo(e){
         this.nTavolo = e;
@@ -30,6 +30,30 @@ class User {
         this.id = e;
     }
 
+    addPiatto(nome, pz){
+        var obj = {
+            "nome": nome,
+            "quantita": pz,
+        }
+        this.ordine.push(obj);
+    }
+    updatePiatto(nome, pz){
+        var obj = {
+            "nome": nome,
+            "quantita": pz,
+        }
+
+        if(pz == 0){
+            //elimino piatto
+            this.ordine.pop(obj);
+        }
+        for (let i = 0; i < this.ordine.length; i++) {
+            var el = this.ordine[i];
+            if(el.nome == nome){
+                el.quantita = pz;
+            }
+        }
+    }
 
 
     

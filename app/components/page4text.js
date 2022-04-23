@@ -60,7 +60,7 @@ const page4text = ({position, width, height, top}) =>{
     useEffect(() => {
         Animated.timing(textAreaX, {
             toValue: 0,
-            duration: 800,
+            duration: 500,
             useNativeDriver:false,
         }).start();
     }, []);

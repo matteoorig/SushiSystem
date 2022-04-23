@@ -22,7 +22,7 @@ const page3text = ({position, width, top, userClass}) =>{
     useEffect(() => {
         Animated.timing(textAreaX, {
             toValue: 0,
-            duration: 800,
+            duration: 500,
             useNativeDriver:false,
         }).start();
     }, []);

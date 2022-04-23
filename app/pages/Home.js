@@ -56,6 +56,19 @@ const Home = (props) =>{
   //mi faccio passare la classe user e la metto globale
   setClass(props.route.params.CUser)
 
+  const rendItem = ({item, index}) =>{
+    U.
+      return(
+          <Item key={index} nameProduct={item.nome} url={item.image}/>
+      );
+  }
+  const rendItemDelete = ({item, index}) =>{
+    return(
+        <DeleteItem key={index} nameProduct={item.nome} name={item.nome}/>
+    );
+  }
+
+  
   // MENU => 1 | ORDER => 2 | OPTIONS => 3
   const [state, setState] = useState(1);
 

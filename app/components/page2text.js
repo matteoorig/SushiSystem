@@ -14,7 +14,7 @@ const page2text = ({position, width, top}) =>{
     useEffect(() => {
         Animated.timing(textAreaX, {
             toValue: 0,
-            duration: 800,
+            duration: 500,
             useNativeDriver:false,
         }).start();
     }, []);
