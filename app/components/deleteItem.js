@@ -10,7 +10,7 @@ import {
 } from '@expo-google-fonts/antic';
 
 
-const DeleteItem = () =>{
+const DeleteItem = ({nameProduct, name}) =>{
 
     const [state, setState] = useState(2);
     const [statoFlex, setstatoFlex] = useState("row"); //setState('center');
@@ -22,7 +22,6 @@ const DeleteItem = () =>{
     function setTouchableOpacity (){
         setcambioTocco(!cambioTocco);
         if(cambioTocco == true){
-            console.log("true")
             setstatoFlex("row");
             setstatoFlexAlign("center");
             setmarginCounter(20);
@@ -30,7 +29,6 @@ const DeleteItem = () =>{
             setmarginCounterDiv(0)
         }
         if(cambioTocco == false){
-            console.log("False")
             setstatoFlex("column");
             setstatoFlexAlign("space-evenly");
             setmarginCounter(0);
@@ -65,10 +63,10 @@ const DeleteItem = () =>{
         <View style={{height:80, width:352, backgroundColor:'white', margin:5, borderRadius:15, display:'flex', flexDirection:'row', justifyContent:statoFlexAlign, position:'relative'}}>
             
             
-                <TouchableWithoutFeedback onPress={ () => setTouchableOpacity()} style={{backgroundColor:'yellow', justifyContent:'center', alignItems:'center'}}>
-                    <View style={{justifyContent:'center', alignItems:'center', flexDirection:'row'}}>
-                        <Text style={{fontSize:50, marginRight:20}}>2</Text>
-                        <Text style={{fontSize:20}}>Pane cinese</Text>
+                <TouchableWithoutFeedback onPress={ () => setTouchableOpacity()} style={{justifyContent:'center', alignItems:'center'}}>
+                    <View style={{width:"100%", height:"100%", justifyContent:'flex-start', alignItems:'center', flexDirection:'row'}}>
+                        <Text style={{fontSize:50, marginRight:25, marginLeft:10}}>2</Text>
+                        <Text style={{fontSize:20}}>{nameProduct}</Text>
                     </View>
                 </TouchableWithoutFeedback>
             {state == 1 ? (<Animated.View style={{height:80, width:50, backgroundColor:'#D62A2A', borderTopRightRadius:15,borderBottomRightRadius:15,  justifyContent:'center', alignItems:'center', transform:[{translateX:translateRight}], opacity:opacityRight, position:'absolute', right:0}}><FontAwesome5 onPress={()=>setdeleteItem(!deleteItem)} name="trash-alt" size={26} color="white" /></Animated.View>):(null)}

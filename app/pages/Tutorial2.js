@@ -26,20 +26,23 @@ const configGesture = {
     directionalOffsetThreshold: 80
 };
 
-const navigateToNew = (props) =>{
-    props.navigation.navigate('Home');
+const navigateToNew = (props, u) =>{
+    props.navigation.navigate('Home', {"CUser": u});
+}
+const navigateToBack = (props) =>{
+    props.navigation.navigate('Tutorial1');
 }
 
 
 
 
-
+const U = new User();
 
 const Tutorial2 = (props) =>{
     const [tutorialState, setTutorialState] = useState(0);
     const [hGesture, sethGesture] = useState("95%");
 
-    const U = new User();
+    
     
     function addData() {
 
@@ -49,32 +52,35 @@ const Tutorial2 = (props) =>{
             "nomeUtente": U.nomeUtente,
         }
 
-        axios.post("http://172.20.10.4:8890/sushiSystem/connect", payload).then((res)=>{
-            console.log(res);
+        axios.post("http://192.168.178.21:8890/sushiSystem/connect", payload).then((res)=>{
+
+            if(res.data.status = "ok"){
+                U.setId(res.data.id);
+            }else{
+                console.log("[ERROR] "+ res.data.status);
+            }
         }).catch((e) =>{
+            navigateToBack(props);
             console.log("[ERROR] "+ e);
         })
+        
     }
 
     function checkState(){
         switch (tutorialState) {
             case 0:
-                console.log("first")
                 sethGesture("15%");
                 setTutorialState(1);
                 break;
             case 1:
-                console.log("second")
                 //inviare i dati al webService
                 addData();
                 sethGesture("95%");
                 setTutorialState(2);
                 break;
             case 2:
-                console.log("si gode")
-                navigateToNew(props);
+                navigateToNew(props, U);
                 setTutorialState(0);
-                
                 break;
           }
     }

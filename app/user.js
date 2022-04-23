@@ -11,7 +11,9 @@ class User {
         this.nTavolo = "";
         this.nomeTavolo = "";
         this.nomeUtente = "";
+        this.id = "";
     }
+
 
     setnTavolo(e){
         this.nTavolo = e;
@@ -23,6 +25,9 @@ class User {
     }
     setnomeUtente(e){
         this.nomeUtente = e;
+    }
+    setId(e){
+        this.id = e;
     }
 
 
