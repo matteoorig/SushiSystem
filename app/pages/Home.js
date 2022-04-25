@@ -54,6 +54,7 @@ const rendItemDelete = ({item, index}) =>{
 
 const Home = (props) =>{
   //mi faccio passare la classe user e la metto globale
+  console.log("fino a qui arrivo")
   setClass(props.route.params.CUser)
 
   const rendItem = ({item, index}) =>{
