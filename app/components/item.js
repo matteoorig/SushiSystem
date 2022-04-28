@@ -25,7 +25,9 @@ const paths = [
 "M21.6924 30.7394L21.1432 32.7351L23.1506 32.1892C23.903 32.0727 24.5682 31.7264 25.075 31.2225C25.5823 30.7183 25.9303 30.0573 26.0478 29.3089L26.5969 27.3133L24.5895 27.8592C23.0856 28.0929 21.9278 29.2439 21.6924 30.7394ZM24.9473 29.1076C24.7955 30.146 23.9918 30.945 22.9476 31.0956L22.7393 31.1484L22.7924 30.9412C22.945 29.9036 23.7484 29.1049 24.7921 28.9532L25.0005 28.9004L24.9473 29.1076Z" ,
 ]
 
-const Item = ({nameProduct, url}) => {
+const Item = ({nameProduct, url, userClass}) => {
+
+    
     function state1_state2(){
         
         setStato(2);
@@ -42,7 +44,7 @@ const Item = ({nameProduct, url}) => {
         }).start(circleH.resetAnimation());
     }
     function state2_state3(){
-        
+        userClass.addPiatto(nameProduct, nOrdini);    //inserisce un piatto con pz 1 in user
         setStato(3);
         Animated.timing(ItemsWI,{
             toValue:56,
@@ -56,19 +58,23 @@ const Item = ({nameProduct, url}) => {
         }).start(ItemsW.resetAnimation());
     }
     function incValue(){
-        setnOrdini(nOrdini + 1);
+        setnOrdini(nOrdini + 1);                      
+        userClass.incPzPiatto(nameProduct);           //ogni volta che clicco + aggiungo un piatto a user
     }
     function decValue(){
-        if(nOrdini == 1){
+        if(nOrdini == 1){                             //elimino il piatto perchè nOrdini va a 0
+            userClass.deletePiatto(nameProduct)
             setStato(1);
             setcheck(false);
         }else{
-            setnOrdini(nOrdini - 1);
+            setnOrdini(nOrdini - 1);                  
+            userClass.decPzPiatto(nameProduct)       //decremento il counter del pz del piatto specifico di 1
         }
     }
     const [stato, setStato] = useState(1);
+    
     const [check, setcheck] = useState(false);
-    const [nOrdini, setnOrdini] = useState(1);
+    const [nOrdini, setnOrdini] = useState(userClass.getPz(nameProduct));
 
     //animations
     //animazione da stato 1 a stato 2
@@ -78,6 +84,7 @@ const Item = ({nameProduct, url}) => {
     const [ItemsWI] = useState(new Animated.Value(0));
     const [ItemsW] = useState(new Animated.Value(0));
 
+    
     
     let [fontsLoaded] = useFonts({
         Antic_400Regular,
@@ -104,14 +111,17 @@ const Item = ({nameProduct, url}) => {
                 
                 {/* bottone aggiungi */}
                 {stato == 2 ? (<Animated.View style={{width:circleW, height:circleH, backgroundColor:'#2CB43A', borderRadius:45, alignItems:'center', justifyContent:'center'}}>
-                <TouchableOpacity onPress={() => state2_state3()}><Ionicons name="add" size={24} color="white" style={{marginLeft:1}}/></TouchableOpacity>
+                <TouchableOpacity onPress={() => {
+                                                    state2_state3() 
+                                                    
+                                                }}><Ionicons name="add" size={24} color="white" style={{marginLeft:1}}/></TouchableOpacity>
                 </Animated.View>):(null)}
                 
                 {/* modalita aggiungi prodotto */}
                 {stato == 3 ? (<View style={{alignItems:'center', justifyContent:'center', flexDirection:'row'}}>
                     <Animated.View style={{width:ItemsW, height:38, borderBottomLeftRadius:15, backgroundColor:'#D62A2A', opacity:0.5, justifyContent:'center', alignItems:'center'}}>
-                        <TouchableOpacity onPress={()=>decValue()}><AntDesign name="minus" size={24} color="white"/></TouchableOpacity>
-                    </Animated.View>
+                        <TouchableOpacity onPress={()=> decValue()}><AntDesign name="minus" size={24} color="white"/></TouchableOpacity>
+                    </Animated.View> 
                     <Animated.View style={{width:ItemsWI, height:38, backgroundColor:'black', justifyContent:'center', alignItems:'center'}}>
                         <Text style={{fontFamily:'Antic_400Regular', fontSize:25, color:'white'}}>{nOrdini}</Text>
                     </Animated.View>
