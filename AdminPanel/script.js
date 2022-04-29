@@ -8,11 +8,9 @@ const btnX = document.querySelectorAll("#x");
 const containerOrdini = document.querySelector(".wrapperOrdini");
 btnX.forEach((obj) =>{
     obj.addEventListener("click", ()=>{
-        console.log(obj);
         parentDiv1 = obj.parentNode;
         parentDiv2 = parentDiv1.parentNode;
         parentDiv3 = parentDiv2.parentNode;
-        console.log(parentDiv3);
         parentDiv3.remove();
     })
 })
@@ -21,21 +19,20 @@ class Rectangle {
     constructor() {
     }
     setElement(e){
-        console.log("matteo");
+
     }
 };
 
 window.onload = () => setEventListener();
 
 function getOrdini(id) {
-    console.log(id);
+
 
 }
+
 function setEventListener(){
     if(element){
-        console.log(element);
         for (let i = 0; i < element.length; i++) {
-            console.log(element[i]);
             tmp = new Rectangle();
 
             element[i].addEventListener("click", ()=>{
@@ -66,16 +63,6 @@ function setEventListener(){
             });
         }
     }
-}
-
-//Creazione elemento tavolo
-function createTavolo(){
-    console.log("[SERVER]: Creazione tavolo");
-    const numTav = 4;
-    const wrapperTavoli = document.getElementById("containerSx");
-    wrapperTavoli.innerHTML += '<div class="tavolo" name="tav" id="tav'+numTav+'">TAVOLO '+numTav+'</div>';
-    element = document.getElementsByClassName("tavolo");
-    setEventListener();
 }
 
 function createOrdine(){
