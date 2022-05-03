@@ -1,5 +1,4 @@
 //var element = document.querySelector(".tavolo");
-var element = document.getElementsByClassName("tavolo");
 var stato = false;
 var tempEventId = "t";
 

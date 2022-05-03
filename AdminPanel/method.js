@@ -5,20 +5,27 @@
 //ip otex -> 192.168.178.130
 
 
-setTimeout(() => {
-    getTavoli().then((tavoli)=>{
-        
-    })
-    setEventListener()
-    console.log(element)
+setInterval(() => {
+    var tavoli = getTavoli();
+    setEventListener();    
 }, 3000);
 
+
+
 function setEventListener(){
-    
-    if(element){
+    element = document.querySelectorAll(".tavolo");
+    console.log(element.length);
+
+    element.forEach((el) => {
+        el.addEventListener("click", ()=>{
+            console.log(el)
+        })
+    });
+
         for (let i = 0; i < element.length; i++) {
             tmp = new Rectangle();
 
+            console.log(element[i].id)
             element[i].addEventListener("click", ()=>{
                 console.log(element.id);
                 if(!stato){
@@ -47,35 +54,36 @@ function setEventListener(){
                 }
             });
         }
-    }
 }
 
 function getTavoli()
 {
-    var tmp;
     fetch("http://192.168.178.130:8890/SushiSystem/getTavoli").then((res)=>{
         return res.json(); //Cast in json
     }).then((data)=>{
 
-
-        //Variabili
-        let value = data.value;
+    if (data.value.length > 0) {
+        console.log(data);
+            //Variabili
+            let value = data.value;
+            const wrapperTavoli = document.getElementById("wrapperTavoli");
+            var str = "";
+            //Cerco il tavolo che mi serve
+            for (let i = 0; i < value.length; i++) {
+                const element = value[i];
+                str += '<div class="tavolo" name="tav" id='+element.nTavolo+'>TAVOLO '+element.nTavolo+'</div>';
+            }
+            wrapperTavoli.innerHTML = str;
+           
+    }
         
-        //Cerco il tavolo che mi serve
-        for (let i = 0; i < value.length; i++) {
-            const element = value[i];
-            createTavolo(element.nTavolo);
-        }
-
-        arrayTavoli = document.getElementsByClassName(".tavolo");
-        tmp= arrayTavoli;
     })
-    return tmp;
+
 }
 
 function getOrdini(id)
 {
-    fetch("http://192.168.178.130:8890/sushiSystem/getOrdini").then((res)=>{
+    fetch("http://192.168.178.130:8890/sushiSystem/getTavoli").then((res)=>{
         return res.json(); //Cast in json
     }).then((data)=>{ //data è il contenuto della response (res) già castato in json
         
@@ -96,7 +104,7 @@ function getOrdini(id)
 
         createTavolo(tavolo.nTavolo);        
 
-        console.log(data);
+        console.log(tavolo.nTavolo);
     })
 }
 
@@ -105,10 +113,15 @@ function getOrdini(id)
 
 //Creazione elemento tavolo
 function createTavolo(nTavolo){
+
     console.log("[SERVER]: Creazione tavolo");
-    const numTav = nTavolo;
+
+    const listTavoli = document.querySelectorAll(".tavolo");
+    var array = [];
+    listTavoli.forEach(e => {
+        array.push(e.id);
+    });
+
     const wrapperTavoli = document.getElementById("containerSx");
-    wrapperTavoli.innerHTML += '<div class="tavolo" name="tav" id='+numTav+'>TAVOLO '+numTav+'</div>';
-    element = document.getElementsByClassName("tavolo");
-    setEventListener();
+    wrapperTavoli.innerHTML += '<div class="tavolo" name="tav" id='+nTavolo+'>TAVOLO '+nTavolo+'</div>';
 }
