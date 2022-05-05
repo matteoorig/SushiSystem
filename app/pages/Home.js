@@ -39,17 +39,6 @@ const data = [
 ]
 
 
-const rendItem = ({item, index}) =>{
-    return(
-        <Item key={index} nameProduct={item.nome} url={item.image}/>
-    );
-}
-const rendItemDelete = ({item, index}) =>{
-  return(
-      <DeleteItem key={index} nameProduct={item.nome} name={item.nome}/>
-  );
-}
-
 
 
 const Home = (props) =>{
@@ -57,15 +46,15 @@ const Home = (props) =>{
   setClass(props.route.params.CUser)
 
   const rendItem = ({item, index}) =>{
-
-    console.log(index)
       return(
-          <Item key={index} indice={index} nameProduct={item.nome} url={item.image} userClass={U}/>
+          <Item key={index} nameProduct={item.nome} url={item.image} userClass={U}/>
       );
   }
+
+
   const rendItemDelete = ({item, index}) =>{
     return(
-        <DeleteItem key={index} nameProduct={item.nome} name={item.nome}/>
+        <DeleteItem key={index} nameProduct={item.nome} name={item.nome} userClass={U}/>
     );
   }
 
@@ -82,7 +71,7 @@ const Home = (props) =>{
         <View style={{width:'100%', height:'90%', justifyContent:'center', alignItems:'center', paddingTop:40}}>
           <Header/>
           {state == 1 ? (<FlatList  data={data} renderItem={rendItem} keyExtractor={(item, index) => index.toString()} numColumns={2}/>): (null)}
-          {state == 2 ? (<FlatList data={data} renderItem={rendItemDelete} keyExtractor={(item, index) => index.toString()} numColumns={1}/>): (null)}
+          {state == 2 ? (<FlatList data={U.ordine} renderItem={rendItemDelete} keyExtractor={(item, index) => index.toString()} numColumns={1}/>): (null)}
         </View>
         <View style={{height:"9%", width:"100%", position:"absolute", bottom:0, display:'flex', alignItems:'center', justifyContent:'center', flexDirection:'row'}}>
 

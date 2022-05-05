@@ -25,7 +25,7 @@ const paths = [
 "M21.6924 30.7394L21.1432 32.7351L23.1506 32.1892C23.903 32.0727 24.5682 31.7264 25.075 31.2225C25.5823 30.7183 25.9303 30.0573 26.0478 29.3089L26.5969 27.3133L24.5895 27.8592C23.0856 28.0929 21.9278 29.2439 21.6924 30.7394ZM24.9473 29.1076C24.7955 30.146 23.9918 30.945 22.9476 31.0956L22.7393 31.1484L22.7924 30.9412C22.945 29.9036 23.7484 29.1049 24.7921 28.9532L25.0005 28.9004L24.9473 29.1076Z" ,
 ]
 
-const Item = ({nameProduct, url, userClass, indice}) => {
+const Item = ({nameProduct, url, userClass}) => {
 
     
     function state1_state2(){
@@ -71,8 +71,9 @@ const Item = ({nameProduct, url, userClass, indice}) => {
             userClass.decPzPiatto(nameProduct)       //decremento il counter del pz del piatto specifico di 1
         }
     }
-    const [stato, setStato] = useState(userClass.statoPresenteOrdine[indice]);
+    const [stato, setStato] = useState(userClass.getAnimationState(nameProduct));
     
+    console.log("stato = "+ stato)
     const [check, setcheck] = useState(false);
     const [nOrdini, setnOrdini] = useState(userClass.getPz(nameProduct));
 
@@ -126,6 +127,18 @@ const Item = ({nameProduct, url, userClass, indice}) => {
                         <Text style={{fontFamily:'Antic_400Regular', fontSize:25, color:'white'}}>{nOrdini}</Text>
                     </Animated.View>
                     <Animated.View style={{width:ItemsW, height:38, backgroundColor:'#2CB43A',borderBottomRightRadius:15, opacity:0.4, justifyContent:'center', alignItems:'center'}}>
+                        <TouchableOpacity onPress={() => incValue()}><Ionicons name="add" size={24} color="white" style={{marginLeft:1}}/></TouchableOpacity>
+                    </Animated.View>
+                </View>):(null)} 
+
+                {stato == 4 ? (<View style={{alignItems:'center', justifyContent:'center', flexDirection:'row'}}>
+                    <Animated.View style={{width:57, height:38, borderBottomLeftRadius:15, backgroundColor:'#D62A2A', opacity:0.5, justifyContent:'center', alignItems:'center'}}>
+                        <TouchableOpacity onPress={()=> decValue()}><AntDesign name="minus" size={24} color="white"/></TouchableOpacity>
+                    </Animated.View> 
+                    <Animated.View style={{width:56, height:38, backgroundColor:'black', justifyContent:'center', alignItems:'center'}}>
+                        <Text style={{fontFamily:'Antic_400Regular', fontSize:25, color:'white'}}>{nOrdini}</Text>
+                    </Animated.View>
+                    <Animated.View style={{width:57, height:38, backgroundColor:'#2CB43A',borderBottomRightRadius:15, opacity:0.4, justifyContent:'center', alignItems:'center'}}>
                         <TouchableOpacity onPress={() => incValue()}><Ionicons name="add" size={24} color="white" style={{marginLeft:1}}/></TouchableOpacity>
                     </Animated.View>
                 </View>):(null)} 

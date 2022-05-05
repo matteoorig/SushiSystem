@@ -10,9 +10,9 @@ import {
 } from '@expo-google-fonts/antic';
 
 
-const DeleteItem = ({nameProduct, name}) =>{
+const DeleteItem = ({nameProduct, name, userClass}) =>{
 
-    const [state, setState] = useState(2);
+    const [state, setState] = useState(1);
     const [statoFlex, setstatoFlex] = useState("row"); //setState('center');
     const [statoFlexAlign, setstatoFlexAlign] = useState("center");
     const [cambioTocco, setcambioTocco] = useState(false);
@@ -53,25 +53,32 @@ const DeleteItem = ({nameProduct, name}) =>{
     const [translateRight] = useState(new Animated.Value(30));
     const [opacityRight] = useState(new Animated.Value(0));
     
-    const [deleteItem, setdeleteItem] = useState(true);
+    function deleteItemSelected(){
+        setState(2);
+        console.log("-> "+ nameProduct)
+        userClass.deletePiatto(nameProduct)
+    }
    
 
 
     
-    return(
+    
+        return(
         
-        <View style={{height:80, width:352, backgroundColor:'white', margin:5, borderRadius:15, display:'flex', flexDirection:'row', justifyContent:statoFlexAlign, position:'relative'}}>
+            <View style={{height:80, width:352, backgroundColor:'white', margin:5, borderRadius:15, display:'flex', flexDirection:'row', justifyContent:statoFlexAlign, position:'relative'}}>
+                
+                {state == 1 ? (<TouchableWithoutFeedback onPress={ () => setTouchableOpacity()} style={{justifyContent:'center', alignItems:'center'}}>
+                        <View style={{width:"100%", height:"100%", justifyContent:'flex-start', alignItems:'center', flexDirection:'row'}}>
+                            <Text style={{fontSize:50, marginRight:25, marginLeft:10}}>{userClass.getPz(nameProduct)}</Text>
+                            <Text style={{fontSize:20}}>{nameProduct}</Text>
+                        </View>
+                    </TouchableWithoutFeedback>): (<View style={{width:"100%", height:"100%", justifyContent:'center', alignItems:'center', flexDirection:'row'}}><Text style={{fontSize:20}}>ELIMINATO</Text></View>)}
+                    
+                {state == 1 ? (<Animated.View style={{height:80, width:50, backgroundColor:'#D62A2A', borderTopRightRadius:15,borderBottomRightRadius:15,  justifyContent:'center', alignItems:'center', transform:[{translateX:0}], opacity:0.5, position:'absolute', right:0}}><FontAwesome5 onPress={()=>deleteItemSelected()} name="trash-alt" size={26} color="white" /></Animated.View>):(null)}
+            </View>
             
-            
-                <TouchableWithoutFeedback onPress={ () => setTouchableOpacity()} style={{justifyContent:'center', alignItems:'center'}}>
-                    <View style={{width:"100%", height:"100%", justifyContent:'flex-start', alignItems:'center', flexDirection:'row'}}>
-                        <Text style={{fontSize:50, marginRight:25, marginLeft:10}}>2</Text>
-                        <Text style={{fontSize:20}}>{nameProduct}</Text>
-                    </View>
-                </TouchableWithoutFeedback>
-            {state == 1 ? (<Animated.View style={{height:80, width:50, backgroundColor:'#D62A2A', borderTopRightRadius:15,borderBottomRightRadius:15,  justifyContent:'center', alignItems:'center', transform:[{translateX:translateRight}], opacity:opacityRight, position:'absolute', right:0}}><FontAwesome5 onPress={()=>setdeleteItem(!deleteItem)} name="trash-alt" size={26} color="white" /></Animated.View>):(null)}
-        </View>
-        
-    );
+        );
+    
+    
 }
 export default DeleteItem;

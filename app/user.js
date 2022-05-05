@@ -30,14 +30,10 @@ class User {
     }
 
     addPiatto(nome, pz){
-        /*
-        if(this.ordine.length > 0){
-            this.statoPresenteOrdine = 3;
-        }
-        */
         var obj = {
             "nome": nome,
             "quantita": pz,
+            
         }
         
         this.ordine.push(obj);
@@ -88,6 +84,21 @@ class User {
                 tmp = el.quantita;
             }
         }
+        return tmp;
+    }
+
+    //quando devo ristampare tutti gli item una volta selezionati 
+    //la funzione ritorna lo stato tra 1 o 3 di quel determinato 
+    //piatto passato come attributo 
+    getAnimationState(nomePiatto){
+        var tmp = 1;    //stato base con nome prodotto su item
+        for (let i = 0; i < this.ordine.length; i++) {
+            var el = this.ordine[i];
+            if(el.nome == nomePiatto){
+                tmp = 4;
+            }
+        }
+        console.log(nomePiatto +" ha richiesto "+ tmp)
         return tmp;
     }
 
