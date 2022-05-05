@@ -44,7 +44,6 @@ const Tutorial2 = (props) =>{
     const [hGesture, sethGesture] = useState("95%");
 
     
-    
     function addData() {
 
         const payload = {
@@ -53,7 +52,7 @@ const Tutorial2 = (props) =>{
             "nomeUtente": U.nomeUtente,
         }
 
-        axios.post("http://172.20.10.4:8890/sushiSystem/connect", payload).then((res)=>{
+        axios.post("http://192.168.178.130:8890/SushiSystem/connect", payload).then((res)=>{
 
             if(res.data.status = "ok"){
                 U.setId(res.data.id);
@@ -85,6 +84,7 @@ const Tutorial2 = (props) =>{
                 break;
           }
     }
+
 
     let [fontsLoaded] = useFonts({
         Cabin_400Regular,

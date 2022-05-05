@@ -13,7 +13,7 @@ class User {
         this.nomeUtente = "";
         this.id = "";
         this.ordine = [];
-        this.statoPresenteOrdine = 1; //1 se l'ordine vuoto appena inserisco almeno un piatto lo setto a tre
+        this.statoPresenteOrdine = []; //1 se l'ordine vuoto appena inserisco almeno un piatto lo setto a tre
     }
 
     setnTavolo(e){
@@ -30,15 +30,23 @@ class User {
     }
 
     addPiatto(nome, pz){
+        /*
         if(this.ordine.length > 0){
             this.statoPresenteOrdine = 3;
         }
+        */
         var obj = {
             "nome": nome,
             "quantita": pz,
         }
-        console.log(obj);
+        
         this.ordine.push(obj);
+
+        var obj = {
+            "stato": 3
+        }
+        this.statoPresenteOrdine.push(obj);
+        console.log(this.statoPresenteOrdine);
     }
     deletePiatto(nome){
         for (let i = 0; i < this.ordine.length; i++) {

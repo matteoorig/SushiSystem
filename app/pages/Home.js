@@ -58,8 +58,9 @@ const Home = (props) =>{
 
   const rendItem = ({item, index}) =>{
 
+    console.log(index)
       return(
-          <Item key={index} nameProduct={item.nome} url={item.image} userClass={U}/>
+          <Item key={index} indice={index} nameProduct={item.nome} url={item.image} userClass={U}/>
       );
   }
   const rendItemDelete = ({item, index}) =>{

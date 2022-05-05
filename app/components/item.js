@@ -25,7 +25,7 @@ const paths = [
 "M21.6924 30.7394L21.1432 32.7351L23.1506 32.1892C23.903 32.0727 24.5682 31.7264 25.075 31.2225C25.5823 30.7183 25.9303 30.0573 26.0478 29.3089L26.5969 27.3133L24.5895 27.8592C23.0856 28.0929 21.9278 29.2439 21.6924 30.7394ZM24.9473 29.1076C24.7955 30.146 23.9918 30.945 22.9476 31.0956L22.7393 31.1484L22.7924 30.9412C22.945 29.9036 23.7484 29.1049 24.7921 28.9532L25.0005 28.9004L24.9473 29.1076Z" ,
 ]
 
-const Item = ({nameProduct, url, userClass}) => {
+const Item = ({nameProduct, url, userClass, indice}) => {
 
     
     function state1_state2(){
@@ -71,7 +71,7 @@ const Item = ({nameProduct, url, userClass}) => {
             userClass.decPzPiatto(nameProduct)       //decremento il counter del pz del piatto specifico di 1
         }
     }
-    const [stato, setStato] = useState(1);
+    const [stato, setStato] = useState(userClass.statoPresenteOrdine[indice]);
     
     const [check, setcheck] = useState(false);
     const [nOrdini, setnOrdini] = useState(userClass.getPz(nameProduct));
