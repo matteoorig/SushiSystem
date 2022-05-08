@@ -48,7 +48,7 @@ class User {
         for (let i = 0; i < this.ordine.length; i++) {
             const element = this.ordine[i];
             if(element.nome == nome){
-                this.ordine.pop(element);
+                this.ordine = this.ordine.filter((item) => item.nome !== nome);
             }
         }
         console.log(this.ordine);
