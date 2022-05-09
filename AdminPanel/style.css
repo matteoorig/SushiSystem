@@ -43,6 +43,7 @@
     background: #F9F9F9;
     display: flex;
     align-items: center;
+    flex-direction: column;
     width: 27%;
     height: 90%;
     border-radius: 70px;
@@ -198,4 +199,43 @@
     top: 100%;
     left: 60px;
     position: absolute;
+}
+.wrapperPeople{
+    width: 100%;
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid red;
+}
+.nPeople{
+    width: 100%;
+    height: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.imgTable{
+    display: flex;
+    width: 40%;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10%;
+}
+.wrapperCash{
+    width: 100%;
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.imgPeople{
+    display: flex;
+
+    width: 12%;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20%;
+    margin-right: 17%;
 }
