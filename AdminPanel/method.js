@@ -103,7 +103,7 @@ function getOrdini(id)
         }
 
         createTavolo(tavolo.nTavolo);        
-
+        setClienti(tavolo.numeroClienti);
         console.log(tavolo.nTavolo);
     })
 }
@@ -124,4 +124,12 @@ function createTavolo(nTavolo){
 
     const wrapperTavoli = document.getElementById("containerSx");
     wrapperTavoli.innerHTML += '<div class="tavolo" name="tav" id='+nTavolo+'>TAVOLO '+nTavolo+'</div>';
+}
+
+function setClienti(numClienti){
+    const divNumPersone = document.getElementById("numeroP");
+    divNumPersone.innerHTML += numClienti;
+    const totale = document.getElementById("totale");
+    tmp = numClienti * 20;
+    totale.innerHTML += "TOTALE: " + tmp + "€"; 
 }
