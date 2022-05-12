@@ -3,25 +3,21 @@
 //ip -> 
 
 //ip otex -> 192.168.178.130
-
+var stato = false;
+var tempEventId = "";
 
 setInterval(() => {
-    var tavoli = getTavoli();
-    setEventListener();    
+    getTavoli();   
 }, 3000);
 
 
 
-function setEventListener(){
-    element = document.querySelectorAll(".tavolo");
-    console.log(element.length);
 
-    element.forEach((el) => {
-        el.addEventListener("click", ()=>{
-            console.log(el)
-        })
-    });
 
+function setEventListener() {
+
+
+    /*
         for (let i = 0; i < element.length; i++) {
             tmp = new Rectangle();
 
@@ -29,6 +25,7 @@ function setEventListener(){
             element[i].addEventListener("click", ()=>{
                 console.log(element.id);
                 if(!stato){
+                    console.log("prova");
                     document.getElementById("e1").style.height="80%";
                     document.getElementById("e1").style.transition = "height 500ms ease-in-out";
                     stato=true;
@@ -54,16 +51,16 @@ function setEventListener(){
                 }
             });
         }
+    */
 }
 
-function getTavoli()
-{
-    fetch("http://192.168.178.130:8890/SushiSystem/getTavoli").then((res)=>{
+function getTavoli() {
+    fetch("http://172.16.102.71:8890/SushiSystem/getTavoli").then((res) => {
         return res.json(); //Cast in json
-    }).then((data)=>{
+    }).then((data) => {
 
-    if (data.value.length > 0) {
-        console.log(data);
+        if (data.value.length > 0) {
+            console.log(data);
             //Variabili
             let value = data.value;
             const wrapperTavoli = document.getElementById("wrapperTavoli");
@@ -71,26 +68,62 @@ function getTavoli()
             //Cerco il tavolo che mi serve
             for (let i = 0; i < value.length; i++) {
                 const element = value[i];
-                str += '<div class="tavolo" name="tav" id='+element.nTavolo+'>TAVOLO '+element.nTavolo+'</div>';
+                str += '<div class="tavolo" name="tav" id=' + element.nTavolo + '>TAVOLO ' + element.nTavolo + '</div>';
             }
             wrapperTavoli.innerHTML = str;
-           
-    }
-        
+
+        }
+
+    }).then(() => {
+        element = document.querySelectorAll(".tavolo");
+        console.log(element);
+
+        element.forEach((el) => {
+            el.addEventListener("click", () => {
+                if(!stato){
+                    
+                    document.getElementById("e1").style.height="80%";
+                    document.getElementById("e1").style.transition = "height 500ms ease-in-out";
+                    stato=true;
+                    tempEventId=el.id;
+                    getOrdini(el.id);
+                }
+                else if(stato){
+                    if(el.id==tempEventId){
+                        document.getElementById("e1").style.height="0%";
+                        document.getElementById("e1").style.transition = "height 500ms ease-in-out";
+                        stato=false;
+                    }
+                    if(el.id!=tempEventId){
+                        console.log("3 " + tempEventId);
+                        console.log("[SERVER]: Cambio tavolo");
+                        document.getElementById("e1").style.height="0%";
+                        document.getElementById("e1").style.transition = "height 500ms ease-in-out";
+                        setTimeout(()=>{
+                            document.getElementById("e1").style.height="80%";
+                            document.getElementById("e1").style.transition = "height 500ms ease-in-out";
+                        },600);
+                        stato=true;
+                        tempEventId=el.id;
+                        getOrdini();
+                    }
+                }
+            })
+        });
     })
 
 }
 
-function getOrdini(id)
-{
-    fetch("http://192.168.178.130:8890/sushiSystem/getTavoli").then((res)=>{
+function getOrdini(id) {
+    fetch("http://172.16.102.71:8890/SushiSystem/getOrdinazione?nTav=").then((res) => {
         return res.json(); //Cast in json
-    }).then((data)=>{ //data è il contenuto della response (res) già castato in json
-        
+    }).then((data) => { //data è il contenuto della response (res) già castato in json
+
         let tavolo;
         let value = data.value;
-        
+
         //Cerco il tavolo che mi serve
+
         for (let i = 0; i < value.length; i++) {
             const element = value[i];
             if (element.nTavolo == id) {
@@ -102,7 +135,7 @@ function getOrdini(id)
             }
         }
 
-        createTavolo(tavolo.nTavolo);        
+        createTavolo(tavolo.nTavolo);
         setClienti(tavolo.numeroClienti);
         console.log(tavolo.nTavolo);
     })
@@ -112,7 +145,7 @@ function getOrdini(id)
 //METODI SCRIPT
 
 //Creazione elemento tavolo
-function createTavolo(nTavolo){
+function createTavolo(nTavolo) {
 
     console.log("[SERVER]: Creazione tavolo");
 
@@ -123,13 +156,13 @@ function createTavolo(nTavolo){
     });
 
     const wrapperTavoli = document.getElementById("containerSx");
-    wrapperTavoli.innerHTML += '<div class="tavolo" name="tav" id='+nTavolo+'>TAVOLO '+nTavolo+'</div>';
+    wrapperTavoli.innerHTML += '<div class="tavolo" name="tav" id=' + nTavolo + '>TAVOLO ' + nTavolo + '</div>';
 }
 
-function setClienti(numClienti){
+function setClienti(numClienti) {
     const divNumPersone = document.getElementById("numeroP");
     divNumPersone.innerHTML += numClienti;
     const totale = document.getElementById("totale");
     tmp = numClienti * 20;
-    totale.innerHTML += "TOTALE: " + tmp + "€"; 
+    totale.innerHTML += "TOTALE: " + tmp + "€";
 }
