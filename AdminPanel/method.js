@@ -49,6 +49,8 @@ function getTavoli() {
                         document.getElementById("e1").style.transition = "height 500ms ease-in-out";
                         stato = false;
                         clrWrapper();
+                        clrSetClienti();
+                        clrAcqua();
                     }
                     if (el.id != tempEventId) {
                         console.log("3 " + tempEventId);
@@ -151,6 +153,23 @@ function setClienti(numClienti) {
     totale.innerHTML += "TOTALE: " + tmp + "€";
 }
 
+function clrSetClienti(){
+    const divNumPersone = document.getElementById("numeroP");
+    divNumPersone.innerHTML = "";
+    const totale = document.getElementById("totale");
+    totale.innerHTML = "";
+}
 
+function setAcqua(qNat, qFriz){
+    const txtNaturale = document.getElementById("textFrizzante");
+    const txtFrizzante = document.getElementById("textNaturale");
+    txtNaturale.innerHTML += qNat;
+    txtFrizzante.innerHTML += qFriz;
+}
 
-
+function clrAcqua(){
+    const txtNaturale = document.getElementById("textFrizzante");
+    const txtFrizzante = document.getElementById("textNaturale");
+    txtNaturale.innerHTML = "";
+    txtFrizzante.innerHTML = "";
+}
