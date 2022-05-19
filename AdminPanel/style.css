@@ -260,31 +260,27 @@
 .acquaNat{
     font-size: 4vh;
     top: -40%;
-    left: 200px;
+    left: 180px;
     position: absolute;
-    background-color: green;
 }
 .nNat{
     font-size: 4vh;
     top: -20%;
-    left: 250px;
+    left: 230px;
     position: absolute;
-    background-color: pink;
     width: 15%;
 }
 .acquaFriz{
     font-size: 4vh;
     top: -40%;
-    left: 40px;
+    left: 20px;
     position: absolute;
-    background: red;
 }
 .nFriz{
     font-size: 4vh;
     top: -20%;
-    left: 90px;
+    left: 70px;
     position: absolute;
-    background-color: pink;
     width: 15%;
 }
 .totale{
