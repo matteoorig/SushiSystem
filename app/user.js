@@ -107,8 +107,27 @@ class User {
         var tmpQuantita = [];
 
         for (let i = 0; i < this.ordine.length; i++) {
-            let objOrdine = this.ordine[i].nome;
+            let objOrdine;
+            if(this.ordine[i].nome == "Pane cinese"){
+                objOrdine = 1;
+            }else if(this.ordine[i].nome == "Involtini di gamberi"){
+                objOrdine = 2;
+            }else if(this.ordine[i].nome == "Astice roll"){
+                objOrdine = 3;
+            }else if(this.ordine[i].nome == "Salmon roll"){
+                objOrdine = 4;
+            }else if(this.ordine[i].nome == "Sashimi"){
+                objOrdine = 5;
+            }else if(this.ordine[i].nome == "Salmone flambè"){
+                objOrdine = 5;
+            }else if(this.ordine[i].nome == "Sushi misto"){
+                objOrdine = 6;
+            }else {
+                objOrdine = 7;
+            }
+
             let objQuantita = this.ordine[i].quantita;
+            
             tmpOrdine.push(objOrdine);
             tmpQuantita.push(objQuantita);
         }

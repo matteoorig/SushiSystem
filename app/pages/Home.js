@@ -8,6 +8,8 @@ import salmonRoll from '../menu/SalmonRoll.png';
 import salmoneFlambe from '../menu/SalmoneFlambe.png';
 import sushiMisto from '../menu/SushiMisto.png';
 import zucchine from '../menu/GunkanZucchinaEbi.png';
+import naturale from '../menu/naturale.png';
+import frizzante from '../menu/frizzante.png';
 
 
 import { useState } from "react";
@@ -45,7 +47,8 @@ const data = [
 {nome:"Sashimi", image:sashimi},
 {nome:"Salmone flambè", image:salmoneFlambe},
 {nome:"Sushi misto", image:sushiMisto},
-{nome:"Gunkan zucchine ebi", image:zucchine}
+{nome:"Acqua naturale", image:naturale},
+{nome:"Acqua frizzante", image:frizzante}
 ]
 
 
