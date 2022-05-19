@@ -3,7 +3,7 @@
     in modo che ogni view ci si possa basare
 */
 
-
+import axios from 'axios';
 class User {
 
 
@@ -100,6 +100,38 @@ class User {
         }
         console.log(nomePiatto +" ha richiesto "+ tmp)
         return tmp;
+    }
+
+    inviaOrdine(url){
+        var tmpOrdine = [];
+        var tmpQuantita = [];
+
+        for (let i = 0; i < this.ordine.length; i++) {
+            let objOrdine = this.ordine[i].nome;
+            let objQuantita = this.ordine[i].quantita;
+            tmpOrdine.push(objOrdine);
+            tmpQuantita.push(objQuantita);
+        }
+        const payload = {
+            "nomeTavolo": this.nomeTavolo,
+            "nomeUtente": this.nomeUtente,
+            "ordinazione": tmpOrdine,
+            "quantita": tmpQuantita
+        }
+        axios.post(url, payload).then((res)=>{
+
+            if(res.data.status = "ok"){
+                console.log("ordine effettuato");
+                this.ordine = [];
+                this.statoPresenteOrdine = [];
+            }else{
+                console.log("[ERROR] "+ res.data.status);
+            }
+        }).catch((e) =>{
+            navigateToBack(props);
+            console.log("[ERROR] "+ e);
+        })
+
     }
 
 
